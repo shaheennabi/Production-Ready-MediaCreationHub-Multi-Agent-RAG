@@ -76,14 +76,3 @@ Built with cutting-edge **RAG** technology, this project empowers platforms to d
 
 ---
 
-## Tags 📑
-- #MultiAgentSystems 🤖
-- #RetrievalAugmentedGeneration 📚
-- #ContentCuration 📋
-- #AIContentRecommendation 🤖
-- #MediaDiscovery 🎬
-- #RealTimeContent 🔄
-- #NewsCurator 📰
-- #StreamingContent 📺
-- #SocialMediaAnalysis 📱
-- #AIandMedia 💡
