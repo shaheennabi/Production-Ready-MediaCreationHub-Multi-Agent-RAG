@@ -9,3 +9,8 @@ The routing agent employs a Large Language Model (LLM) to determine which downst
 
 ![Routing-agent](https://github.com/user-attachments/assets/375cb08c-6201-484b-a61e-3c937ae61399)
 
+An alternative routing involves choosing between summarization and question-answering RAG pipelines. The agent evaluates the input query to decide whether to direct it to the summary query engine or the vector query engine, both configured as tools.
+
+
+![Routing-agent-1](https://github.com/user-attachments/assets/dc9597ea-7071-4a24-87df-6adca8b2afce)
+
