@@ -1,5 +1,8 @@
 # Traditional RAG Pipeline
 
+![0_KOpmpTSoSrxgMQAV](https://github.com/user-attachments/assets/d1e1bceb-677f-4e93-9cf5-c2c284c598dd)
+
+
 The **Traditional RAG Pipeline** (Retrieval-Augmented Generation) is a foundational framework that integrates information retrieval with generation tasks to respond to user queries. Unlike more advanced models, it generally lacks the complexity and **agent orchestration** of newer systems like the **Agentic RAG Pipeline**, but it still provides a solid foundation for **combining retrieval and generation**. The traditional RAG pipeline typically consists of the following key components:
 
 ---
