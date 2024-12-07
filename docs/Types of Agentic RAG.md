@@ -7,3 +7,5 @@
 
 The routing agent employs a Large Language Model (LLM) to determine which downstream RAG pipeline to select. This process constitutes agentic reasoning, wherein the LLM analyzes the input query to make an informed decision about selecting the most suitable RAG pipeline. This represents the fundamental and simple form of agentic reasoning.
 
+![Routing-agent](https://github.com/user-attachments/assets/375cb08c-6201-484b-a61e-3c937ae61399)
+
