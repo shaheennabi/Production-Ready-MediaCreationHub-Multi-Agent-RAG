@@ -1,8 +1,8 @@
-🎆 # Production-Ready Multi-Agent RAG Project 🎆
+# 🎆 Production-Ready Multi-Agent RAG Project 🎆
 Caution: I will start working on this project soon.
 note: readme will be updated later
 
-Welcome to the **MediaCreationHub**! 🌟 A cutting-edge **Retrieval-Augmented Generation (RAG)** system integrated with **multi-agent collaboration**. This project streamlines **content discovery**, **evaluation**, and **recommendation** for media platforms like **news**, **video streaming**, and **social media**. 🚀✨
+
 
 ---
 
