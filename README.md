@@ -1,6 +1,14 @@
 # 🎇 ChronoPilot: Your AI-Powered Task & Workflow Automation System 🚀🎆
 
-ChronoPilot is a **multi-agent RAG (Retrieval-Augmented Generation)** system designed to optimize your day by automating tasks like **email checking**, **calendar management**, **research**, and **real-time decision making**. Integrated with industry-ready AI tools, it continuously adapts to streamline your workflow and provide personalized task management suggestions.
+🎯 High-Level Design Overview
+The ChronoPilot system is a multi-agent workflow management system designed to automate tasks like email checking, calendar management, and real-time decision-making. It interacts with a variety of external tools (email, calendar, knowledge base) and provides intelligent task scheduling and optimization using multi-agent AI models.
+
+The core components of the system include:
+
+1. Task Management & Scheduling (Dynamic Planning)
+2. Email & Calendar Integration (Data Retrieval & Automation)
+3. Task Research (Query Understanding & Decomposition)
+4. Real-Time Feedback & Adaptation (Continuous Learning)
 
 ## 🚀 Key Features
 - **Automated Task Management**: Automatically checks emails, calendars, and assigns priorities to tasks based on importance.
