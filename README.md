@@ -1,4 +1,4 @@
-# 🎆 Production-Ready Multi-Agent RAG Project 🎆
+# 🎆 Production-Ready ChronoPilot Multi-Agent RAG Project 🎆
 Caution: I will start working on this project soon.
 note: readme will be updated later
 
