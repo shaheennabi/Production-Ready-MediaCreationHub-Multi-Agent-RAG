@@ -9,7 +9,7 @@ logging.basicConfig(level=logging.INFO, format='[%(asctime)s]: %(message)s')
 list_of_files = [
     "PRODUCTION-READY-MULTI-AGENT-RAG-PROJECT",  # directory, not a file
     ".github/FUNDING.yml",
-    "docs/git.keep",
+    "docs/.gitkeep",
     "notebooks/.gitkeep",
     "flowcharts/.gitkeep",
     "src/agentic/.gitkeep",  
