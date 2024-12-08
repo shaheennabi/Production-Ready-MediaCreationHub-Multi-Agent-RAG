@@ -29,11 +29,7 @@ The core components of the system include:
 - **Email Automation APIs**: To read, organize, and prioritize emails for you.
 - **Tool Use Agents**: For real-time research and data retrieval from various sources.
 - **Dynamic Planning Agents**: To automatically adjust your task schedule based on priorities and progress.
-
-## 🌟 Benefits
-- **AI-Powered Task Handling**: Leverage the full potential of AI to handle mundane tasks.
-- **Adaptable Workflow**: ChronoPilot learns from your habits and adapts to your changing needs.
-- **Seamless Integration**: Easily integrates with your existing tools, making it hassle-free.
+amless Integration**: Easily integrates with your existing tools, making it hassle-free.
 
 ## 📜 License
 This project is licensed under the **MIT License**.  
