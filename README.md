@@ -1,5 +1,8 @@
 # 🎇  Multi-Agent RAG Project 🚀🎆
-In this project, we will implement end-to-end multi-agent RAG pipeline
+In this project, we will implement end-to-end multi-agent RAG pipeline, with langchain langgraph and other third party tools etc, 
+
+
+
 ## 📜 License
 This project is licensed under the **MIT License**.  
 You are free to use, modify, and share this project, as long as proper credit is given to the original contributors.  
