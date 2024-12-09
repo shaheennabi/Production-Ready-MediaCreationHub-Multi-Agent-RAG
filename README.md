@@ -1,4 +1,4 @@
-# 🎇 ChronoPilot: Your AI-Powered Task & Workflow Automation System 🚀🎆
+# 🎇  Your AI-Powered Task & Workflow Automation System 🚀🎆
 
 
 
