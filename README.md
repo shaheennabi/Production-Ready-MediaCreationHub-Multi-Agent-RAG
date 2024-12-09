@@ -1,6 +1,5 @@
 # 🎇  Multi-Agent RAG Project 🚀🎆
-
-
+In this project, there will be a multi-agent RAG complete pipeline with the details 
 
 ## 📜 License
 This project is licensed under the **MIT License**.  
