@@ -1,7 +1,7 @@
 # 🎇  Multi-Agent RAG Project 🚀🎆
 In this project, we will implement end-to-end multi-agent RAG pipeline, with langchain langgraph and other third party tools etc, here we will be using Groq Inference cloud for
 **fast inferencing**.
-
+In this project i will be pretending
 
 
 ## 📜 License
