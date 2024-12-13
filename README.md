@@ -1,4 +1,4 @@
-# 🎇  Multi-Agent RAG Project 🚀🎆
+# 🎇  Production-Ready-TripPlanner-Multi-AI-Agent Project 🚀🎆
 readme: will be updated later.
 
 In this project we will go deep inside the documentation of langgraph.
