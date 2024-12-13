@@ -2,7 +2,8 @@
 readme: will be updated later.
 
 In this project we will go deep inside the documentation of langgraph.
-We will be implementing the latest multi-ai  agents workflows  
+We will be implementing the latest multi-ai  agents workflows.
+Project will also use the RAG to, and agents will first search the vector embeddings in vector  store if not found then directly redirected to particular tools.
 
 ## 📜 License
 This project is licensed under the **MIT License**.  
