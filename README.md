@@ -1,8 +1,7 @@
 # 🎇  Production-Ready-TripPlanner-Multi-AI-Agent Project 🚀🎆
 readme: will be updated later.
 
-In this project we will go deep inside the documentation of langgraph.
-We will be implementing the latest multi-ai  agents workflows.
+A cutting-edge travel assistant powered by multiple AI agents, designed to provide personalized travel recommendations, real-time information, and seamless user interaction.
 
 
 ## 📜 License
