@@ -1,10 +1,16 @@
-# 🎇  Production-Ready-TripPlanner-Multi-AI-Agent Project 🚀🎆
-readme: will be updated later.
+# 🎇 Production-Ready TripPlanner Multi-AI Agent Project 🚀🎆
 
-A cutting-edge travel assistant powered by multiple AI agents, designed to provide personalized travel recommendations, real-time information, and seamless user interaction.
-I will update the full pipeline later here. Langchain, Langgraph will be used for this project.
+**README:** Additional Details will be added soon.
 
-### This project is composed of 3 Agents i.e Web Research Agent, Travel Agent, Reporter Agent
+This project is a state-of-the-art travel assistant leveraging **multiple AI agents** to deliver:  
+- 🌍 **Personalized travel recommendations**  
+- 🛫☀️ **Real-time updates** on destinations, events, weather, and flights  
+- 🔗 **Seamless and interactive user experiences**  
+
+The implementation will feature tools and frameworks like **LangChain** and **LangGraph**, ensuring a robust and modular architecture for dynamic planning and research.
+
+The complete pipeline will be documented here soon. Stay tuned! 🚀
+
 ## 📜 License
 This project is licensed under the **MIT License**.  
 You are free to use, modify, and share this project, as long as proper credit is given to the original contributors.  
