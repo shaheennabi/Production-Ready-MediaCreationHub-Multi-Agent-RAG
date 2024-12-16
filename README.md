@@ -11,11 +11,14 @@ This project is a cutting-edge **travel assistant** powered by **three specializ
   Integrated with **flight search** and **real-time weather updates**, this agent helps you find the best travel routes and stay informed about conditions at your destination.  
 
 - **🧠 Planning Agent**  
-  This agent consolidates research and travel data, generating a personalized travel report with detailed recommendations and itineraries.  
+  This agent consolidates research and travel data, generating a personalized travel report with detailed recommendations and itineraries.
+
+We will be using these three agents and these will be controlled by 
 
 The project leverages **LangChain** and **LangGraph** to ensure dynamic task allocation and modularity, enabling efficient collaboration between agents.  
 
 Full pipeline and architecture will be updated soon. Stay tuned! 🚀
+
 
 
 ## 📜 License
