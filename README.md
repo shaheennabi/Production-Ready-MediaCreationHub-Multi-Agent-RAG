@@ -13,7 +13,7 @@ This project is a cutting-edge **travel assistant** powered by **three specializ
 - **🧠 Planning Agent**  
   This agent consolidates research and travel data, generating a personalized travel report with detailed recommendations and itineraries.
 
-We will be using these three agents and these will be controlled by Supervisor(llm) and the agents will of ReAct type .. first agent will share state with the seond and first and second will share state with 3rd agent to generate the Report
+We will be using these three agents and these will be controlled by Supervisor(llm) and the agents will of ReAct type .. first agent will share state with the second and first and second will share state with 3rd agent to generate the Report
 
 The project leverages **LangChain** and **LangGraph** to ensure dynamic task allocation and modularity, enabling efficient collaboration between agents.  
 
