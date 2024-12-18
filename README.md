@@ -13,7 +13,7 @@ This project is a cutting-edge **travel assistant** powered by **three specializ
 - **🧠 Planning Agent**  
   This agent consolidates research and travel data, generating a personalized travel report with detailed recommendations and itineraries.
 
-Modular code will be followed with high-end API i.e 
+Modular code will be followed with high-end API i.e taskflowai library.
 
 Full pipeline and architecture will be updated soon. Stay tuned! 🚀
 
