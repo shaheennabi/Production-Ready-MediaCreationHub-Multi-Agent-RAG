@@ -1,0 +1,5 @@
+taskflowai
+python-dotenv
+streamlit
+ipykernel
+-e .
