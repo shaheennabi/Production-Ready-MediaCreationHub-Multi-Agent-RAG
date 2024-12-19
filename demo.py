@@ -1,6 +1,8 @@
 import streamlit as st
-from taskflowai import Agent, OpenrouterModels, Task, AmadeusTools, OpenaiModels, WikipediaTools, GroqModels, WebTools, set_verbosity
+from taskflowai import Agent, OpenrouterModels, Task, AmadeusTools, OpenaiModels, WikipediaTools, WebTools, set_verbosity
 import os
+from dotenv import load_dotenv
+import re
 
 # Must be the first Streamlit command
 st.set_page_config(
@@ -13,160 +15,229 @@ st.set_page_config(
 set_verbosity(True)
 
 # Load environment variables
-from dotenv import load_dotenv
 load_dotenv()
 
-# API Keys
-weather_api_key = os.getenv("WEATHER_API_KEY")
-serper_api_key = os.getenv("SERPER_API_KEY")
-amadeus_api_key = os.getenv("AMADEUS_API_KEY")
-amadeus_api_secret = os.getenv("AMADEUS_API_SECRET")
-groq_api_key = os.getenv("GROQ_API_KEY")
-gemini_api_key = os.getenv("GEMINI_API_KEY")
-openai_api_key = os.getenv("OPENAI_API_KEY")
+# First, simplify the CSS by removing the white backgrounds and fixing contrast
+st.markdown("""
+    <style>
+    /* Container styling */
+    .block-container {
+        padding: 1rem;
+        max-width: 960px;
+        margin: 0 auto;
+    }
+    
+    /* Section styling */
+    .section-header {
+        margin: 1.5rem 0 1rem;
+        padding: 0.5rem;
+        background-color: #1e3a8a;
+        color: white;
+        border-radius: 0.3rem;
+    }
+    
+    /* Content sections */
+    .content-section {
+        padding: 1.5rem;
+        border-radius: 0.5rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid #e5e7eb;
+        background-color: #1e293b;
+        color: white;
+    }
+    
+    /* Form styling */
+    .stTextInput {
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Button styling */
+    .stButton button {
+        margin: 1rem 0;
+    }
+    
+    /* Message styling */
+    .stSuccess, .stError, .stWarning {
+        padding: 0.75rem;
+        border-radius: 0.3rem;
+        margin: 1rem 0;
+    }
+    </style>
+    """, unsafe_allow_html=True)
 
-# Define agents with reduced output tokens
+# Validate required API keys
+required_keys = [
+    "WEATHER_API_KEY",
+    "SERPER_API_KEY",
+    "AMADEUS_API_KEY",
+    "AMADEUS_API_SECRET",
+    "GROQ_API_KEY",
+    "GEMINI_API_KEY"
+]
+
+# Check for missing keys
+missing_keys = [key for key in required_keys if not os.getenv(key)]
+if missing_keys:
+    raise ValueError(f"Missing required API keys: {', '.join(missing_keys)}")
+
+# Define agents
 web_research_agent = Agent(
     role="Web Research Agent",
     goal="Research destinations and find relevant images",
-    attributes="diligent, thorough",
+    attributes="diligent, thorough, comprehensive, visual-focused",
     llm=OpenaiModels.gpt_3_5_turbo,
-    tools=[WebTools.serper_search, WikipediaTools.search_articles, WikipediaTools.search_images],
-    max_tokens=2000  # Limit output tokens
+    tools=[WebTools.serper_search, WikipediaTools.search_articles, WikipediaTools.search_images]
 )
 
 travel_agent = Agent(
     role="Travel Agent",
-    goal="Assist with travel queries",
-    attributes="detailed, efficient",
+    goal="Assist travelers with their queries",
+    attributes="friendly, hardworking, and detailed in reporting back to users",
     llm=OpenaiModels.gpt_3_5_turbo,
-    tools=[AmadeusTools.search_flights, WebTools.get_weather_data],
-    max_tokens=1000  # Limit output tokens
+    tools=[AmadeusTools.search_flights, WebTools.get_weather_data]
 )
 
 reporter_agent = Agent(
     role="Travel Report Agent",
-    goal="Write travel reports",
-    attributes="concise, organized",
-    llm=OpenaiModels.gpt_3_5_turbo,
-    max_tokens=2000  # Limit output tokens
+    goal="Write comprehensive travel reports with visual elements",
+    attributes="friendly, hardworking, visual-oriented, and detailed in reporting",
+    llm=OpenaiModels.gpt_3_5_turbo
 )
 
-def research_destination(destination, interests):
-    """Research destination with a focus on including relevant images"""
-    instruction = (
-        f"Create a concise report about {destination} focusing on {interests}. Include:\n"
-        f"1. Brief overview (2-3 sentences)\n"
-        f"2. Top 3 attractions related to user interests\n"
-        f"3. Key practical information\n"
-        "Keep the response under 1000 words."
-    )
+# Then, simplify the image formatting function to preserve markdown
+def format_markdown_images(markdown_text):
+    """
+    Keep markdown image syntax intact and just ensure URLs are properly formatted
+    """
+    import re
     
-    # First get the basic information
-    basic_info = Task.create(
+    # Only process markdown images without converting to HTML
+    img_pattern = r'!\[(.*?)\]\((.*?)\)'
+    
+    def fix_url(match):
+        alt_text, url = match.groups()
+        url = url.strip()
+        if not url.startswith(('http://', 'https://')):
+            url = f"https:{url}" if url.startswith('//') else f"https://{url}"
+        return f'![{alt_text}]({url})'
+    
+    return re.sub(img_pattern, fix_url, markdown_text)
+ 
+
+def research_destination(destination, interests):
+    """Research destination with enhanced image handling"""
+    instruction = (
+        f"Create a comprehensive report about {destination} with the following:\n"
+        f"1. Use Wikipedia tools to find and include 2-3 high-quality images of key attractions\n"
+        f"2. Ensure images are full URLs starting with http:// or https://\n"
+        f"3. Format images as: ![Description](https://full-image-url)\n"
+        f"4. Include a brief caption for each image\n"
+        f"5. Research attractions and activities related to: {interests}\n"
+        f"6. Organize the report with proper headings and sections\n"
+        f"7. Place images naturally throughout the content where relevant\n"
+        f"8. Include practical visitor information\n"
+        f"Format the entire response in clean markdown"
+    )
+    return Task.create(
         agent=web_research_agent,
         context=f"User Destination: {destination}\nUser Interests: {interests}",
         instruction=instruction
     )
-    
-    # Separately fetch images
-    image_instruction = f"Find 2 high-quality images of main attractions in {destination}"
-    images = Task.create(
-        agent=web_research_agent,
-        context=f"Destination: {destination}",
-        instruction=image_instruction,
-        tools=[WikipediaTools.search_images]
-    )
-    
-    # Combine the results
-    return f"{basic_info}\n\n{images}"
 
 def research_events(destination, dates, interests):
+    """Research events with enhanced image handling"""
     instruction = (
-        f"Find top 3 relevant events in {destination} during {dates} "
-        f"related to: {interests}. Keep response brief and focused."
+        f"Research events in {destination} during {dates} that match these interests: {interests}.\n\n"
+        f"For each event, include:\n"
+        f"- Event name\n"
+        f"- Date and time\n"
+        f"- Venue/location\n"
+        f"- Ticket information (if applicable)\n"
+        f"- A short description of the event\n"
+        f"- Format event images as: ![Event Name](https://full-image-url)\n"
+        f"- Format images as: ![Description](https://full-image-url)\n"
+        f"- Ensure images are full URLs starting with http:// or https://\n"
+        f"- Information is accurate and up-to-date\n"
+        f"- Place images naturally throughout the content where relevant\n"
+        f"- Format the entire response in clean markdown"
+
     )
     return Task.create(
         agent=web_research_agent,
-        context=f"Destination: {destination}",
+        context=f"Destination: {destination}\nDates: {dates}\nInterests: {interests}",
         instruction=instruction
     )
 
 def research_weather(destination, dates):
-    instruction = f"Provide a brief weather summary for {destination} during {dates}."
+    """Research weather information"""
     return Task.create(
         agent=travel_agent,
-        context=f"Destination: {destination}",
-        instruction=instruction
+        context=f"Destination: {destination}\nDates: {dates}",
+        instruction=(
+            "Provide detailed weather information including:\n"
+            "1. Temperature ranges\n"
+            "2. Precipitation chances\n"
+            "3. General weather patterns\n"
+            "4. Recommended clothing/gear"
+        )
     )
 
 def search_flights(current_location, destination, dates):
-    instruction = (
-        f"Find top 3 flight options from {current_location} to {destination} "
-        f"during {dates}. Focus on best value options."
-    )
+    """Search flight options"""
     return Task.create(
         agent=travel_agent,
-        context=f"Flight search",
-        instruction=instruction
+        context=f"Flights from {current_location} to {destination} on {dates}",
+        instruction="Find top 3 affordable and convenient flight options and provide concise bullet-point information"
     )
 
 def write_travel_report(destination_report, events_report, weather_report, flight_report):
+    """Create final travel report"""
     instruction = (
-        "Create a concise travel report combining the key information. "
-        "Format with clear headers and keep sections brief."
+        "Create a comprehensive travel report that:\n"
+        "1. Maintains all images from the destination and events reports\n"
+        "2. Organizes information in a clear, logical structure\n"
+        "3. Keeps all markdown formatting intact\n"
+        "4. Ensures images are properly displayed with captions\n"
+        "5. Includes all key information from each section"
     )
     return Task.create(
         agent=reporter_agent,
-        context="Final report compilation",
-        instruction=instruction,
-        input_data={
-            "destination": destination_report,
-            "events": events_report,
-            "weather": weather_report,
-            "flights": flight_report
-        }
+        context=f"Destination Report: {destination_report}\n\n"
+               f"Events Report: {events_report}\n\n"
+               f"Weather Report: {weather_report}\n\n"
+               f"Flight Report: {flight_report}",
+        instruction=instruction
     )
 
 def main():
-    st.title("✈️ Travel Planning Assistant 🌎")
-    st.markdown("---")
-
-    # Input Form Section
-    st.markdown("### 📝 Trip Details")
+    st.title("✈️ Travel Planning Assistant")
     
-    col1, col2, col3 = st.columns(3)
-    
-    with col1:
-        current_location = st.text_input(
-            "Departure City",
-            help="Enter city name (e.g., New York, London)",
-            placeholder="Enter your starting point"
-        )
+    with st.container():
+        st.subheader("📝 Trip Details")
         
-    with col2:
-        destination = st.text_input(
-            "Destination City",
-            help="Enter destination city (e.g., Paris, Tokyo)",
-            placeholder="Enter your destination"
-        )
+        col1, col2 = st.columns(2)
         
-    with col3:
-        dates = st.text_input(
-            "Travel Dates",
-            help="Format: Dec 20-25, 2024",
-            placeholder="Enter your travel dates"
-        )
+        with col1:
+            current_location = st.text_input(
+                "Departure City",
+                placeholder="Enter your starting point"
+            )
+            destination = st.text_input(
+                "Destination City",
+                placeholder="Enter your destination"
+            )
+            
+        with col2:
+            dates = st.text_input(
+                "Travel Dates",
+                placeholder="Dec 20-25, 2024"
+            )
+            interests = st.text_input(
+                "Your Interests",
+                placeholder="museums, food, hiking..."
+            )
 
-    interests = st.text_input(
-        "Your Interests",
-        help="e.g., museums, food, hiking, architecture",
-        placeholder="Enter your interests (optional)"
-    )
-
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-        plan_button = st.button("🚀 Plan My Trip", type="primary", use_container_width=True)
+    plan_button = st.button("🚀 Plan My Trip", type="primary", use_container_width=True)
 
     if plan_button:
         if current_location and destination and dates:
@@ -174,52 +245,70 @@ def main():
                 st.success("🎈 Starting your travel planning journey!")
                 st.balloons()
 
-                # Create expanders instead of tabs for better content management
-                with st.expander("📍 Destination Information", expanded=True):
-                    with st.spinner("Researching destination..."):
-                        destination_report = research_destination(destination, interests)
-                    st.markdown(destination_report, unsafe_allow_html=True)
+                sections = {
+                    "destination": ("📍 Destination Information", research_destination),
+                    "events": ("🎯 Events & Activities", research_events),
+                    "weather": ("☀️ Weather Forecast", research_weather),
+                    "flights": ("✈️ Flight Options", search_flights)
+                }
 
-                with st.expander("🎯 Events", expanded=True):
-                    with st.spinner("Finding events..."):
-                        events_report = research_events(destination, dates, interests)
-                    st.markdown(events_report)
+                reports = {}
 
-                with st.expander("☀️ Weather", expanded=True):
-                    with st.spinner("Checking weather..."):
-                        weather_report = research_weather(destination, dates)
-                    st.markdown(weather_report)
+                for key, (title, func) in sections.items():
+                    with st.container():
+                        st.markdown(f"<div class='section-header'><h3>{title}</h3></div>", 
+                                  unsafe_allow_html=True)
+                        with st.spinner(f"Loading {title.lower()}..."):
+                            if key == "destination":
+                                reports[key] = func(destination, interests)
+                            elif key == "events":
+                                reports[key] = func(destination, dates, interests)
+                            elif key == "weather":
+                                reports[key] = func(destination, dates)
+                            else:  # flights
+                                reports[key] = func(current_location, destination, dates)
+                            
+                            try:
+                                formatted_content = format_markdown_images(reports[key])
+                                st.markdown(formatted_content)  # Just use regular markdown
+                            except Exception as e:
+                                st.error(f"Error displaying content: {str(e)}")
+                                st.markdown(reports[key])
 
-                with st.expander("✈️ Flights", expanded=True):
-                    with st.spinner("Searching flights..."):
-                        flights_report = search_flights(current_location, destination, dates)
-                    st.markdown(flights_report)
-
-                with st.expander("📋 Complete Plan", expanded=True):
-                    with st.spinner("Creating final report..."):
-                        final_report = write_travel_report(
-                            destination_report, events_report, weather_report, flights_report
-                        )
-                    st.markdown(final_report, unsafe_allow_html=True)
-                    
-                    st.download_button(
-                        label="📥 Download Complete Travel Plan",
-                        data=final_report,
-                        file_name=f"travel_plan_{destination.lower().replace(' ', '_')}.md",
-                        mime="text/markdown",
-                        use_container_width=True
+                st.markdown("<div class='section-header'><h3>📋 Complete Travel Plan</h3></div>", 
+                          unsafe_allow_html=True)
+                with st.spinner("Creating final report..."):
+                    final_report = write_travel_report(
+                        reports["destination"],
+                        reports["events"],
+                        reports["weather"],
+                        reports["flights"]
                     )
+                    # And for the final report:
+                    try:
+                        formatted_final_report = format_markdown_images(final_report)
+                        st.markdown(formatted_final_report)  # Just use regular markdown
+                    except Exception as e:
+                        st.error(f"Error displaying final report: {str(e)}")
+                        st.markdown(final_report)
+                
+                st.download_button(
+                    label="📥 Download Complete Travel Plan",
+                    data=final_report,
+                    file_name=f"travel_plan_{destination.lower().replace(' ', '_')}.md",
+                    mime="text/markdown",
+                    use_container_width=True
+                )
 
             except Exception as e:
                 st.error(f"🚨 An error occurred: {str(e)}")
                 print(f"Debug - Error details: {str(e)}")
         else:
-            st.warning("🔔 Please fill in all required fields (departure city, destination, and dates)")
+            st.warning("🔔 Please fill in all required fields")
 
-    st.markdown("---")
     st.markdown("""
-        <p style='text-align: center; color: #666666;'>
-            Happy Travels! 🌟 Let us help you plan your perfect trip!
+        <p style='text-align: center; color: #666666; margin-top: 2rem;'>
+            Happy Travels! 🌟
         </p>
         """, unsafe_allow_html=True)
 
