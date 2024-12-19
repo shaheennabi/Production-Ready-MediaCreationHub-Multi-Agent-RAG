@@ -73,6 +73,7 @@ required_keys = [
     "AMADEUS_API_SECRET",
     "GROQ_API_KEY",
     "GEMINI_API_KEY"
+    "OPENAI_API_KEY"
 ]
 
 # Check for missing keys
