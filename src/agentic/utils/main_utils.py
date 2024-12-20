@@ -4,31 +4,7 @@ import os
 from dotenv import load_dotenv
 from src.agentic.logger import logging
 from src.agentic.exception import CustomException
-
-class FormatMarkdownImages:
-    @classmethod
-    def format_markdown_images(cls, markdown_text):
-        """
-        Keep markdown image syntax intact and ensure URLs are properly formatted.
-        """
-        try:
-            logging.info("Starting markdown image formatting.")
-            
-            img_pattern = r'!\[(.*?)\]\((.*?)\)'
-            
-            def fix_url(match):
-                alt_text, url = match.groups()
-                url = url.strip()
-                if not url.startswith(('http://', 'https://')):
-                    url = f"https:{url}" if url.startswith('//') else f"https://{url}"
-                return f'![{alt_text}]({url})'
-            
-            formatted_text = re.sub(img_pattern, fix_url, markdown_text)
-            logging.info("Markdown image formatting completed successfully.")
-            return formatted_text
-        except Exception as e:
-            logging.error(f"Error formatting markdown images: {e}")
-            raise CustomException(f"An error occurred while formatting markdown images: {e}")
+import sys
 
 # Load environment variables
 load_dotenv()
@@ -41,7 +17,7 @@ required_keys = [
 # Check for missing keys
 missing_keys = [key for key in required_keys if not os.getenv(key)]
 if missing_keys:
-    raise CustomException(f"Missing required API keys: {', '.join(missing_keys)}")
+    raise CustomException(sys, "Missing required environment variables: " + ', '.join(missing_keys))
 
 # Set verbosity for taskflowai
 set_verbosity(True)
@@ -58,5 +34,5 @@ class LoadModel:
             logging.info("OpenAI GPT-3.5-turbo model loaded successfully.")
             return model
         except Exception as e:
-            logging.error(f"Failed to load OpenAI GPT-3.5-turbo model: {e}")
-            raise CustomException(f"An error occurred while loading the OpenAI GPT-3.5-turbo model: {e}")
+            logging.info("Failed to load OpenAI GPT-3.5-turbo model")
+            raise CustomException(sys, e)

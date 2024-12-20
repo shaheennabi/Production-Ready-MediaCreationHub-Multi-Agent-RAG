@@ -2,7 +2,7 @@ from taskflowai import Agent
 from src.agentic.utils.main_utils import LoadModel
 from src.agentic.logger import logging
 from src.agentic.exception import CustomException
-
+import sys
 
 class TravelReportAgent:
     @classmethod
@@ -20,10 +20,7 @@ class TravelReportAgent:
             logging.info("Travel Report Agent initialized successfully.")
             return travel_report_agent
 
-        except CustomException as e:
-            logging.error(f"Custom exception occurred while initializing the agent: {e}")
-            raise CustomException(f"Error during agent initialization: {e}")
 
         except Exception as e:
-            logging.error(f"An unexpected error occurred: {e}")
-            raise CustomException(f"Unexpected error during agent initialization: {e}")
+            logging.info("An unexpected error occurred")
+            raise CustomException(sys, e)

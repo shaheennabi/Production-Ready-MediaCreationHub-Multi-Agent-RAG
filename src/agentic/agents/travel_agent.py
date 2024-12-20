@@ -4,6 +4,8 @@ from src.agentic.tools.search_flights import SearchFlights
 from src.agentic.tools.get_weather_data import WeatherTool
 from src.agentic.logger import logging
 from src.agentic.exception import CustomException
+import sys
+
 
 class TravelAgent:
     @classmethod
@@ -17,19 +19,14 @@ class TravelAgent:
                 attributes="friendly, hardworking, and detailed in reporting back to users",
                 llm=LoadModel.load_openai_model(),
                 tools=[
-                    SearchFlights.get_flights(),
-                    WeatherTool.get_weather()
+                    
                 ]
             )
 
             logging.info("Travel Agent initialized successfully.")
             return travel_agent
 
-        except CustomException as e:
-            logging.error(f"Custom exception occurred while initializing the travel agent: {e}")
-            raise CustomException(f"Error during travel agent initialization: {e}")
-
         except Exception as e:
-            logging.error(f"An unexpected error occurred: {e}")
-            raise CustomException(f"Unexpected error during travel agent initialization: {e}")
+            logging.info("An unexpected error occurred")
+            raise CustomException(sys, e)
 
