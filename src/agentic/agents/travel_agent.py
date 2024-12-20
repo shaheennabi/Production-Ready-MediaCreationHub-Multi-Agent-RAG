@@ -1,10 +1,11 @@
-from taskflowai import Agent
+from taskflowai import Agent, AmadeusTools, WebTools
 from src.agentic.utils.main_utils import LoadModel
-from src.agentic.tools.search_flights import SearchFlights
-from src.agentic.tools.get_weather_data import WeatherTool
+
 from src.agentic.logger import logging
 from src.agentic.exception import CustomException
 import sys
+from src.agentic.tools.search_flights import SearchFlights
+from src.agentic.tools.get_weather_data import GetWeatherData
 
 
 class TravelAgent:
@@ -18,7 +19,7 @@ class TravelAgent:
                 goal="Assist travelers with their queries",
                 attributes="friendly, hardworking, and detailed in reporting back to users",
                 llm=LoadModel.load_openai_model(),
-                tools=[
+                tools=[SearchFlights.search_flights_tool(), GetWeatherData.fetch_weather_data()
                     
                 ]
             )
