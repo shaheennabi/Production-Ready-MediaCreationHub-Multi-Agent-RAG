@@ -2,4 +2,5 @@ taskflowai
 python-dotenv
 streamlit
 ipykernel
+from_root
 -e .
