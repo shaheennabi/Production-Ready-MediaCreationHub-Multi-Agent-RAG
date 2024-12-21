@@ -46,13 +46,11 @@ jobs:
 
       - name: Deploy to EC2
         run: |
-          ssh -i ${{ secrets.SSH_KEY }} ubuntu@44.210.129.170 \
+          echo "${{ secrets.SSH_KEY }}" > ssh_key
+          chmod 600 ssh_key
+          ssh -i ssh_key -o StrictHostKeyChecking=no ubuntu@44.203.254.197 \
             'docker pull ${{ secrets.AWS_ECR_REPO_URI }}:latest && \
              docker stop streamlit-app || true && \
              docker rm streamlit-app || true && \
              docker run -d --name streamlit-app -p 8501:8501 ${{ secrets.AWS_ECR_REPO_URI }}:latest'
-
-      - name: Cleanup Old Images
-        if: always()
-        run: |
-          docker system prune -af
+          rm ssh_key
