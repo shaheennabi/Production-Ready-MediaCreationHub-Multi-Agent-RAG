@@ -13,6 +13,13 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      - name: Verify Docker Permissions
+        run: |
+          ls -l /var/run/docker.sock
+          groups
+          whoami
+          docker ps
+          
       - name: Build Docker Image
         run: |
           docker build -t streamlit-app \
