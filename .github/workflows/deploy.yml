@@ -47,4 +47,4 @@ jobs:
     steps:
       - name: Deploy to EC2
         run: |
-          ssh -i ${{ secrets.SSH_KEY }} ec2-user@44.210.129.170 'docker pull ${{ secrets.AWS_ECR_REPO_URI }}:latest && docker run -p 8501:8501 ${{ secrets.AWS_ECR_REPO_URI }}:latest'
+          ssh -i ${{ secrets.SSH_KEY }} ubuntu@44.210.129.170 'docker pull ${{ secrets.AWS_ECR_REPO_URI }}:latest && docker run -p 8501:8501 ${{ secrets.AWS_ECR_REPO_URI }}:latest'
