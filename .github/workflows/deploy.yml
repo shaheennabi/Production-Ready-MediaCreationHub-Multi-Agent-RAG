@@ -7,33 +7,59 @@ on:
 
 jobs:
   Continuous-Integration:
-    runs-on: self-hosted  # Use your self-hosted runner
+    runs-on: self-hosted
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
+      - name: Check Docker Setup
+        run: |
+          docker version
+          docker info
+          groups
+          ls -l /var/run/docker.sock
+          
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
+        with:
+          install: true
+          use: true
+          driver-opts: |
+            image=moby/buildkit:latest
+          buildkitd-flags: --debug
+
+      - name: Debug Docker (on failure)
+        if: ${{ failure() }}
+        run: |
+          docker version
+          docker info
+          groups
+          ls -l /var/run/docker.sock
 
       - name: Build Docker Image with .env from GitHub Secrets
         run: |
-          docker build -t streamlit-app --build-arg OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }} --build-arg WEATHER_API_KEY=${{ secrets.WEATHER_API_KEY }} --build-arg SERPER_API_KEY=${{ secrets.SERPER_API_KEY }} --build-arg AMADEUS_API_KEY=${{ secrets.AMADEUS_API_KEY }} --build-arg AMADEUS_API_SECRET=${{ secrets.AMADEUS_API_SECRET }} .
+          docker build -t streamlit-app \
+            --build-arg OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }} \
+            --build-arg WEATHER_API_KEY=${{ secrets.WEATHER_API_KEY }} \
+            --build-arg SERPER_API_KEY=${{ secrets.SERPER_API_KEY }} \
+            --build-arg AMADEUS_API_KEY=${{ secrets.AMADEUS_API_KEY }} \
+            --build-arg AMADEUS_API_SECRET=${{ secrets.AMADEUS_API_SECRET }} .
 
   Continuous-Delivery:
-    needs: Continuous-Integration  # Ensure the build is completed
+    needs: Continuous-Integration
     runs-on: self-hosted
 
     steps:
       - name: Authenticate to AWS ECR
-        uses: aws-actions/configure-aws-credentials@v1
+        uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_DEFAULT_REGION }}
 
       - name: Login to Amazon ECR
-        uses: aws-actions/amazon-ecr-login@v1
+        uses: aws-actions/amazon-ecr-login@v2
 
       - name: Push Docker Image to ECR
         run: |
@@ -41,10 +67,19 @@ jobs:
           docker push ${{ secrets.AWS_ECR_REPO_URI }}:latest
 
   Continuous-Deployment:
-    needs: Continuous-Delivery  # Ensure the image is available in ECR
+    needs: Continuous-Delivery
     runs-on: self-hosted
 
     steps:
       - name: Deploy to EC2
         run: |
-          ssh -i ${{ secrets.SSH_KEY }} ubuntu@44.210.129.170 'docker pull ${{ secrets.AWS_ECR_REPO_URI }}:latest && docker run -p 8501:8501 ${{ secrets.AWS_ECR_REPO_URI }}:latest'
+          ssh -i ${{ secrets.SSH_KEY }} ubuntu@44.210.129.170 \
+            'docker pull ${{ secrets.AWS_ECR_REPO_URI }}:latest && \
+             docker stop streamlit-app || true && \
+             docker rm streamlit-app || true && \
+             docker run -d --name streamlit-app -p 8501:8501 ${{ secrets.AWS_ECR_REPO_URI }}:latest'
+
+      - name: Cleanup Old Images
+        if: always()
+        run: |
+          docker system prune -af
