@@ -19,15 +19,15 @@ jobs:
           groups
           whoami
           docker ps
-          
+      
       - name: Build Docker Image
         run: |
           docker build -t streamlit-app \
-            --build-arg OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }} \
-            --build-arg WEATHER_API_KEY=${{ secrets.WEATHER_API_KEY }} \
-            --build-arg SERPER_API_KEY=${{ secrets.SERPER_API_KEY }} \
-            --build-arg AMADEUS_API_KEY=${{ secrets.AMADEUS_API_KEY }} \
-            --build-arg AMADEUS_API_SECRET=${{ secrets.AMADEUS_API_SECRET }} .
+            --build-arg OPENAI_API_KEY="${{ secrets.OPENAI_API_KEY }}" \
+            --build-arg WEATHER_API_KEY="${{ secrets.WEATHER_API_KEY }}" \
+            --build-arg SERPER_API_KEY="${{ secrets.SERPER_API_KEY }}" \
+            --build-arg AMADEUS_API_KEY="${{ secrets.AMADEUS_API_KEY }}" \
+            --build-arg AMADEUS_API_SECRET="${{ secrets.AMADEUS_API_SECRET }}" .
 
       - name: Authenticate to AWS ECR
         uses: aws-actions/configure-aws-credentials@v4
