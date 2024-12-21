@@ -13,31 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Check Docker Setup
-        run: |
-          docker version
-          docker info
-          groups
-          ls -l /var/run/docker.sock
-          
-      - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v2
-        with:
-          install: true
-          use: true
-          driver-opts: |
-            image=moby/buildkit:latest
-          buildkitd-flags: --debug
-
-      - name: Debug Docker (on failure)
-        if: ${{ failure() }}
-        run: |
-          docker version
-          docker info
-          groups
-          ls -l /var/run/docker.sock
-
-      - name: Build Docker Image with .env from GitHub Secrets
+      - name: Build Docker Image
         run: |
           docker build -t streamlit-app \
             --build-arg OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }} \
