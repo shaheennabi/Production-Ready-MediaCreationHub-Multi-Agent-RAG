@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  Continuous-Integration:
+  Build-and-Deploy:
     runs-on: self-hosted
 
     steps:
@@ -29,11 +29,6 @@ jobs:
             --build-arg AMADEUS_API_KEY=${{ secrets.AMADEUS_API_KEY }} \
             --build-arg AMADEUS_API_SECRET=${{ secrets.AMADEUS_API_SECRET }} .
 
-  Continuous-Delivery:
-    needs: Continuous-Integration
-    runs-on: self-hosted
-
-    steps:
       - name: Authenticate to AWS ECR
         uses: aws-actions/configure-aws-credentials@v4
         with:
@@ -49,11 +44,6 @@ jobs:
           docker tag streamlit-app:latest ${{ secrets.AWS_ECR_REPO_URI }}:latest
           docker push ${{ secrets.AWS_ECR_REPO_URI }}:latest
 
-  Continuous-Deployment:
-    needs: Continuous-Delivery
-    runs-on: self-hosted
-
-    steps:
       - name: Deploy to EC2
         run: |
           ssh -i ${{ secrets.SSH_KEY }} ubuntu@44.210.129.170 \
