@@ -52,5 +52,11 @@ jobs:
             'docker pull ${{ secrets.AWS_ECR_REPO_URI }}:latest && \
              docker stop streamlit-app || true && \
              docker rm streamlit-app || true && \
-             docker run -d --name streamlit-app -p 8501:8501 ${{ secrets.AWS_ECR_REPO_URI }}:latest'
+             docker run -d --name streamlit-app \
+             -e OPENAI_API_KEY="${{ secrets.OPENAI_API_KEY }}" \
+             -e WEATHER_API_KEY="${{ secrets.WEATHER_API_KEY }}" \
+             -e SERPER_API_KEY="${{ secrets.SERPER_API_KEY }}" \
+             -e AMADEUS_API_KEY="${{ secrets.AMADEUS_API_KEY }}" \
+             -e AMADEUS_API_SECRET="${{ secrets.AMADEUS_API_SECRET }}" \
+             -p 8501:8501 ${{ secrets.AWS_ECR_REPO_URI }}:latest'
           rm ssh_key
