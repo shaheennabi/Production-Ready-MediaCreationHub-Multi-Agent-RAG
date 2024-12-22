@@ -268,6 +268,7 @@ Write Travel Report Task (streamlit UI):
 
 ### Have a Look (How it Appears via UI While Running the `Main Pipeline`)
 
+![Screenshot 2024-12-19 095931](https://github.com/user-attachments/assets/159316be-1895-4dcb-9925-18e058c90b17)
 <img width="958" alt="1" src="https://github.com/user-attachments/assets/ff149519-e5fd-4271-abf0-d5eb9d8fca82" />
 <img width="956" alt="2" src="https://github.com/user-attachments/assets/5e13255a-16c7-4510-bdf3-d0385c176034" />
 <img width="959" alt="3" src="https://github.com/user-attachments/assets/563c21d2-f15a-4402-9f6c-fea788ad5090" />
@@ -359,7 +360,7 @@ conda create -p your_env_name python=3.10
 ```
 Activate the env:
 ```bash
-conda activate your_env_name  
+conda activate your_env_path  
 ```
 Then, install the required packages:
 ```bash
