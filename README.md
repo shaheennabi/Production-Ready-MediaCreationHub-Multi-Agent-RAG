@@ -1,4 +1,3 @@
-# 🌺 🌸 🌿 Production-Ready TripPlanner Multi-AI Agent Project 🍀 🌱 🪴
 # 🌺 🌿 🌱 Production-Ready TripPlanner Multi-AI Agent Project 🍃 🌸 🪴
 
 ## **Problem Statement**  
@@ -19,7 +18,7 @@ To achieve this, **Taskflow AI** was chosen due to its:
 
 ---
 
-## **My Role as a Developer** 🎋  
+## **My Role as a Developer** 🍃 🌸  
 
 As a developer, my manager entrusted me to deliver this project with **high-quality results** within a **strict time frame**. My responsibilities included:  
 - Designing a system that could provide users with accurate and detailed destination information in one query.  
@@ -46,7 +45,7 @@ I chose **Taskflow AI** because of its support for **multi-AI agent integration*
 
 ---
 
-## **My Approach** 🚀  
+## **My Approach** ✨💚  
 
 The project followed a structured approach to ensure efficient execution and high-quality results.  
 
