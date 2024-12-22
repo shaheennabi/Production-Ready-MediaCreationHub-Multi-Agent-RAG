@@ -12,6 +12,7 @@
 ![Deployment Pipeline TripPlanner ](https://github.com/user-attachments/assets/2aa5d232-3766-4ac1-b48a-eb055ac1f7e7)
 
 
+## Guide for Developers 🌿🎇✨💚🎆🌱🎇✨💚🎆 
 
 ### Project tree structure
 
