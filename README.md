@@ -110,6 +110,25 @@ Research Destination Task (streamlit UI):
 - The research output is formatted in clean markdown, ensuring well-structured and informative reports.
 
 
+Research Events Task (streamlit UI)
+
+<img width="753" alt="Research Events task" src="https://github.com/user-attachments/assets/a39322b5-0473-4e9c-92ea-9ce70874f336" />
+
+- The `research_events` function utilizes the **WebResearchAgent** imported from `src.agentic.agents.web_research_agent`.
+- The **WebResearchAgent** employs tools like **WikipediaTools** (for image searches) and **SerperSearch** (for web search) to collect event-related data.
+- The function generates a detailed report about events in a specified **destination** during given **dates**, based on provided **interests**. 
+- The instruction includes:
+  - Event name, date, time, venue/location, ticket information, and a short description.
+  - Images formatted as `![Event Name](https://full-image-url)` or `![Description](https://full-image-url)`.
+  - Ensuring URLs are complete and starting with `http://` or `https://`.
+  - Formatting the entire response in clean markdown with images placed naturally within the content.
+
+
+
+
+
+
+
 
 
 
