@@ -1,5 +1,17 @@
 # 🎇 Production-Ready TripPlanner Multi-AI Agent Project 🚀🎆
 
+## System Design or Project Pipeline
+### Main Pipeline
+
+![TripPlanner](https://github.com/user-attachments/assets/45f1226e-2e3c-4ae7-999f-9ff0db143bc7)
+
+
+
+### Deployment Pipeline
+
+![Deployment Pipeline TripPlanner ](https://github.com/user-attachments/assets/2aa5d232-3766-4ac1-b48a-eb055ac1f7e7)
+
+
 
 ### Project tree structure
 
