@@ -260,7 +260,7 @@ pip install -r requirements.txt
 ```
 I recommend using TaskflowAI here because of its modularity design, which is crucial for building scalable AI/ML applications. When productionizing AI or ML apps, having a modular design from the beginning is essential. So, I recommend following the main pipeline and deployment steps as outlined.
 
-You can fork this repo as TaskflowAI is simple and easy to understand. Here is the documentation link: [TaskflowAI Documentation](https://www.taskflowai.org/). Feel free to explore more or contribute. It provides tools to work with multi-AI agents and multi-agent system design easily.
+You can fork this repo as TaskflowAI is simple and easy to understand. Here is the documentation link: [TaskflowAI Documentation](https://www.taskflowai.org/). Feel free to explore more or contribute. It provides tools to work with multi-AI agents and multi-agent system design easily, and there are also other frameworks such as Langchain's **langgraph**, **crewai** etc, you can use those too.
 
 Happy coding and building multi-ai-agent-system! 🎉💚
 
