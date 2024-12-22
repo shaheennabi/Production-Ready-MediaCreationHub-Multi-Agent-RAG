@@ -198,6 +198,55 @@ Write Travel Report Task (streamlit UI):
 
 ![Deployment Pipeline TripPlanner ](https://github.com/user-attachments/assets/2aa5d232-3766-4ac1-b48a-eb055ac1f7e7)
 
+See the **deployment diagram** to gain a better understanding of the infrastructure and components involved in the deployment process.
+# Docker Build & Deploy
+
+After completing the **main pipeline**, it's now time to deploy it on the cloud. The steps below outline the process for deploying the Dockerized application to AWS using GitHub Actions **Self Hosted Runner**.
+
+---
+
+## Prerequisites  
+Before proceeding, ensure you have:  
+- Access to AWS.  
+- Necessary API keys and secrets stored securely as GitHub secrets.  
+- SSH access to the EC2 instance with an EC2 key pair's PGP key added to GitHub secrets.
+
+---
+
+## Steps to Deploy
+
+1. **Checkout the Code**  
+   Pull the latest code from the `main` branch to ensure the most up-to-date version of the application is deployed.
+
+2. **Verify Docker Setup**  
+   Confirm that Docker is installed and properly configured on the self-hosted runner by checking permissions and verifying the Docker daemon.
+
+3. **Build the Docker Image**  
+   Create a Docker image for the Streamlit application using the necessary build arguments like API keys.
+
+4. **Authenticate to AWS**  
+   Log in to AWS using the provided credentials to access the Elastic Container Registry (ECR).
+
+5. **Push Docker Image to AWS ECR**  
+   Tag the Docker image and push it to AWS Elastic Container Registry for deployment.
+
+6. **Deploy to EC2 Instance**  
+   - Pull the latest Docker image from AWS ECR onto the EC2 instance.  
+   - Stop and remove any running instance of the application.  
+   - Run the updated Docker container with the necessary environment variables and expose it on the desired port.
+
+---
+
+Ensure you store all the API keys (e.g., `OPENAI_API_KEY`, `WEATHER_API_KEY`, `SERPER_API_KEY`, `AMADEUS_API_KEY`, `AMADEUS_API_SECRET`) securely in GitHub secrets.
+
+Ensure you add your EC2 key pair's PGP key to GitHub secrets to allow SSH access to the EC2 instance.
+
+If you want to see the detailed YAML configuration file for this workflow, navigate to `.github/workflows/deploy.yml`.
+
+---
+
+
+
 
 ## Guide for Developers 🌿🎇✨💚🎆🌱🎇✨💚🎆 
 
