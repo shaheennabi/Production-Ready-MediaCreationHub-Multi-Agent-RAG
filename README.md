@@ -103,11 +103,11 @@ Research Destination Task (streamlit UI):
 
 ![Screenshot 2024-12-22 023831](https://github.com/user-attachments/assets/c3a36834-c2d6-49c5-bf30-214399da5f67)
 
-- In this code snippet, I import the necessary modules from TaskflowAI, including **Agent**, **Task**, and **set_verbosity**.
+- In this code snippet, I import the necessary modules from TaskflowAI, including **Task**, **set_verbosity**, and **Web Research Agent** from `src.agentic.agents.web_research_agent`.
 - The `research_destination` function takes a **destination** and **interests** as input to gather detailed information about the destination.
-- The function uses the **WebResearchAgent**, which integrates tools such as **WikipediaTools** (for article and image searches) and **SerperSearch** (for web search) to collect relevant data.
-- The `Task.create` method leverages the **WebResearchAgent** to fetch high-quality images, attraction details, and relevant activities based on user interests.
-- The research output is formatted in clean markdown, ensuring structured and informative reports.
+- The function utilizes the **WebResearchAgent**, which combines tools like **WikipediaTools** (for article and image searches) and **SerperSearch** (for web searches) to extract relevant data.
+- The `Task.create` method invokes the **WebResearchAgent** to fetch high-quality images, attraction details, and relevant activities based on user interests.
+- The research output is formatted in clean markdown, ensuring well-structured and informative reports.
 
 
 
