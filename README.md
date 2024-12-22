@@ -32,16 +32,16 @@ I chose **Taskflow AI** because of its support for **multi-AI agent integration*
 ## **Project Goals** 🎯  
 
 1. **Deliver a System to Meet Client Needs**  
-  - Create a system to provide accurate and instant destination insights, fulfilling the user's requirements seamlessly.  
+    - Create a system to provide accurate and instant destination insights, fulfilling the user's requirements seamlessly.  
 
 2. **Build a Modular Architecture**  
-  - Design the system to support scalability and future upgrades.  
+    - Design the system to support scalability and future upgrades.  
 
 3. **Testing and Quality Assurance**  
-  - Ensure the system's reliability and accuracy through rigorous testing.  
+    - Ensure the system's reliability and accuracy through rigorous testing.  
 
 4. **Cost-Effective Measures**  
-  - Optimize API and model-related costs without compromising performance.  
+    - Optimize API and model-related costs without compromising performance.  
 
 ---
 
@@ -52,7 +52,7 @@ The project followed a structured approach to ensure efficient execution and hig
 ### **Steps in My Approach**  
 
 1. **Framework Selection**  
-  - Chose **Taskflow AI** for its multi-AI agent support and capabilities in modular design.  
+    - Chose **Taskflow AI** for its multi-AI agent support and capabilities in modular design.  
 
 2. **Model Selection**  
   - Tested multiple models, including:  
@@ -67,14 +67,14 @@ The project followed a structured approach to ensure efficient execution and hig
   - Additionally, tested with **Groq inference engine**, which also failed to meet the project's performance indicators.  
 
 3. **System Design and Development**  
-  - Built a **modular architecture** using Taskflow AI, ensuring the system could adapt to future needs and upgrades.  
+    - Built a **modular architecture** using Taskflow AI, ensuring the system could adapt to future needs and upgrades.  
 
 4. **Cost Optimization**  
-  - Prioritized minimizing API costs by choosing the **GPT-3.5 Turbo model** and optimizing system performance.  
+    - Prioritized minimizing API costs by choosing the **GPT-3.5 Turbo model** and optimizing system performance.  
 
 5. **Testing and Delivery**  
-  - Conducted rigorous testing to validate accuracy and reliability.  
-  - Delivered the project on time, exceeding quality expectations.  
+    - Conducted rigorous testing to validate accuracy and reliability.  
+    - Delivered the project on time, exceeding quality expectations.  
 
 ---
 
@@ -90,13 +90,13 @@ The project faced several challenges, including:
 ## **How I Fixed Challenges** 🌟  
 
 - **Model API Costs**:  
- - Evaluated multiple models and frameworks, but **GPT-3.5 Turbo** was chosen for its cost-effectiveness and outstanding performance.  
+   - Evaluated multiple models and frameworks, but **GPT-3.5 Turbo** was chosen for its cost-effectiveness and outstanding performance.  
 
 - **Token Limitations**:  
- - OpenAI's **GPT-3.5 Turbo** effectively managed token constraints by leveraging its powerful reasoning capabilities, optimizing token usage, and maintaining context to generate accurate results.  
+   - OpenAI's **GPT-3.5 Turbo** effectively managed token constraints by leveraging its powerful reasoning capabilities, optimizing token usage, and maintaining context to generate accurate results.  
 
 - **Memory Challenges**:  
- - Compared with other models like LLaMA and Google's offerings, **GPT-3.5 Turbo** proved superior in handling memory-intensive tasks and maintaining consistent performance.  
+  - Compared with other models like LLaMA and Google's offerings, **GPT-3.5 Turbo** proved superior in handling memory-intensive tasks and maintaining consistent performance.  
 
 ---
 
