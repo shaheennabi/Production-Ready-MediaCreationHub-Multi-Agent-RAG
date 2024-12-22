@@ -199,21 +199,16 @@ Write Travel Report Task (streamlit UI):
 ![Deployment Pipeline TripPlanner ](https://github.com/user-attachments/assets/2aa5d232-3766-4ac1-b48a-eb055ac1f7e7)
 
 See the **deployment diagram** to gain a better understanding of the infrastructure and components involved in the deployment process.
-# Docker Build & Deploy
 
 After completing the **main pipeline**, it's now time to deploy it on the cloud. The steps below outline the process for deploying the Dockerized application to AWS using GitHub Actions **Self Hosted Runner**.
 
-
-
-## Prerequisites  
+* Prerequisites  
 Before proceeding, ensure you have:  
 - Access to AWS.  
 - Necessary API keys and secrets stored securely as GitHub secrets.  
 - SSH access to the EC2 instance with an EC2 key pair's PGP key added to GitHub secrets.
 
-
-
-## Steps to Deploy
+* Steps to Deploy
 
 1. **Checkout the Code**  
    Pull the latest code from the `main` branch to ensure the most up-to-date version of the application is deployed.
