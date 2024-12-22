@@ -4,7 +4,7 @@
 ---  
 *Note: This project simulates an industry-standard scenario where I am assuming the role of a developer at XYZ Company. The client required a system to provide users with accurate, detailed, and instant information about travel destinations. This system was to be embedded into their platform for seamless user experience, ensuring that users could fetch trip details in one go with pinpoint accuracy.*  
 
-**High-Level Note:** Some related topics, such as **AI agents**, their pipelines, different types of agents, and **RAG (Retrieval-Augmented Generation) systems** in general, have already been discussed. You can find these details in the **`docs` folder** for further exploration.  
+*High-Level Note:  Some related topics, such as **AI agents**, their pipelines, different types of agents, and **RAG (Retrieval-Augmented Generation) systems** in general, have already been discussed. You can find these details in the **`docs` folder** for further exploration.*
 
 ---
 
