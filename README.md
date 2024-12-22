@@ -110,7 +110,7 @@ Research Destination Task (streamlit UI):
 - The research output is formatted in clean markdown, ensuring well-structured and informative reports.
 
 
-Research Events Task (streamlit UI)
+Research Events Task (streamlit UI):
 
 <img width="753" alt="Research Events task" src="https://github.com/user-attachments/assets/a39322b5-0473-4e9c-92ea-9ce70874f336" />
 
@@ -124,6 +124,45 @@ Research Events Task (streamlit UI)
   - Formatting the entire response in clean markdown with images placed naturally within the content.
 
 
+Research Weather (streamlit UI):
+
+<img width="699" alt="Research Weather Task" src="https://github.com/user-attachments/assets/328577fe-57fc-4394-98c9-ffc2871d9258" />
+
+- The `research_weather` function uses the **TravelAgent** imported from `src.agentic.agents.travel_agent`. 
+- The **TravelAgent** employs tools like **GetWeatherData**, which fetches weather information using the Weather.com API.
+- The function generates a weather report for a specific **destination** and **dates**. 
+- The instruction includes:
+  - Temperature ranges.
+  - Precipitation chances.
+  - General weather patterns.
+  - Recommendations for clothing and gear.
+
+Search Flights Task (streamlit UI):
+
+<img width="790" alt="Search Flights task" src="https://github.com/user-attachments/assets/002b296b-fa9b-4fc3-bdfc-b0085f63e0f8" />
+
+- The `search_flights` function uses the **TravelAgent**, imported from `src.agentic.agents.travel_agent`.
+- The **TravelAgent** utilizes tools like **SearchFlights**, which leverages the Amadeus API to search for flight options.
+- The function identifies flights from a **current location** to a **destination** on specific **dates**.
+- The instruction specifies:
+  - Finding the top 3 affordable and convenient flight options.
+  - Providing concise bullet-point details for each option.
+
+Write Travel Report Task (streamlit UI):
+
+<img width="730" alt="Write  travel report task " src="https://github.com/user-attachments/assets/ee1c64cb-78b4-42e4-86fb-95be412e996c" />
+
+- The `write_travel_report` function uses the **ReporterAgent**, imported from `src.agentic.agents.reporter_agent`.
+- The **ReporterAgent** combines multiple reports (destination, events, weather, and flight reports) into a single comprehensive travel report.
+- The instruction for creating the travel report includes:
+  - Retaining all images from the destination and events reports.
+  - Organizing information with a clear and logical structure.
+  - Preserving all markdown formatting.
+  - Ensuring images are properly displayed with captions.
+  - Incorporating all essential information from each individual report section.
+
+
+### Have a Look (How it Appears via UI While Running the `Main Pipeline`)
 
 
 
