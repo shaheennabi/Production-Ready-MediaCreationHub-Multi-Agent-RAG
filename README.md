@@ -5,7 +5,7 @@
 
 ![TripPlanner](https://github.com/user-attachments/assets/45f1226e-2e3c-4ae7-999f-9ff0db143bc7)
 
-Let's Start with LLM OpenAI: (GPT-3.5 Turbo):
+### Let's Start with LLM OpenAI: (GPT-3.5 Turbo):
 
 ![Screenshot 2024-12-22 014852](https://github.com/user-attachments/assets/c33b9de0-e125-4ee7-8fff-67dc952dfe0f)
 
@@ -14,7 +14,7 @@ Let's Start with LLM OpenAI: (GPT-3.5 Turbo):
 - Make sure to load the OpenAI API key properly.  
 - It is recommended to store the API key securely using a `.env` file or a similar approach.  
 
-Now let's task about the Agents:
+### Now let's task about the Agents:
 Web Research Agent: 
 
   ![Screenshot 2024-12-22 014625](https://github.com/user-attachments/assets/83e0f923-6e4e-4763-b11d-09980ea09458)
@@ -55,7 +55,7 @@ Reporter Agent:
   - **Web Search Agent**: Provides destination details and event-related information.  
   - **Travel Agent**: Supplies weather reports and flight information.  
 
-Now let's talk about Tools
+### Now let's talk about Tools
 
 Wiki Image Search Tool:
 
@@ -64,8 +64,6 @@ Wiki Image Search Tool:
 - Here, I define the **WikiImages tool**, which is responsible for searching images from Wikipedia using **TaskflowAI's WikipediaTools**.  
 - The **goal** of the tool is to fetch relevant images based on specific queries or topics.  
 - It leverages **WikipediaTools** from TaskflowAI to access and retrieve image data from Wikipedia.  
-- **Logging** ensures that the image search process is tracked and monitored for any errors.  
-- If an exception occurs, it is handled gracefully using `CustomException` to ensure robust error management.  
 
 
 ### Deployment Pipeline
