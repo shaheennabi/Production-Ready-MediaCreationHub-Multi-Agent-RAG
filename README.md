@@ -89,6 +89,18 @@ Weather Fetching Tool:
 - The **goal** of the tool is to retrieve weather-related information based on location or other relevant queries.  
 - It utilizes **WebTools** from TaskflowAI to interact with the Weather.com API and fetch weather data.  
 
+Search Fligts Tool: 
+
+![Screenshot 2024-12-22 022445](https://github.com/user-attachments/assets/39e79100-0d2d-46db-a877-935fc0ce67f3)
+
+- Here, I define the **SearchFlights tool**, which is responsible for searching flights using **TaskflowAI's AmadeusTools** and the **Amadeus API**.  
+- The **goal** of the tool is to retrieve flight information based on specific queries such as origin, destination, dates, and other relevant parameters.  
+- It leverages **AmadeusTools** from TaskflowAI to interact with the Amadeus API for flight searches.  
+
+### Ok, so now let's talk the app.py where everything is bought together (see how tasks are defined, to later engage with UI)
+
+
+
 
 
 
