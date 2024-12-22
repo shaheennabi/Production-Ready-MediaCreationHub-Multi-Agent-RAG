@@ -7,20 +7,35 @@ logging.basicConfig(level=logging.INFO, format='[%(asctime)s]: %(message)s')
 
 # List of files and directories relative to the current root
 list_of_files = [
-    "PRODUCTION-READY-MULTI-AGENT-RAG-PROJECT",  # directory, not a file
-    ".github/FUNDING.yml",
-    "docs/.gitkeep",
-    "notebooks/.gitkeep",
-    "flowcharts/.gitkeep",
-    "src/agentic/.gitkeep",  
+    ".github/workflows/deploy.yml",
+    "deployment/app.py",
+    "docs/Agentic RAG Pipeline.md",
+    "docs/Types of Agentic RAG.md",
+    "flowcharts/project_pipeline.png",
+    "log/timestamp(log)",
+    "notebooks/TripPlanner_Multi_AI_Agent_Experimental.ipynb",
+    "src/agentic/agents/reporter_agent.py",
+    "src/agentic/agents/travel_agent.py",
+    "src/agentic/agents/web_research_agent.py",
+    "src/agentic/exception/__init__.py",
+    "src/agentic/logger/__init__.py",
+    "src/agentic/tools/get_weather_data.py",
+    "src/agentic/tools/search_articles.py",
+    "src/agentic/tools/search_flights.py",
+    "src/agentic/tools/search_images.py",
+    "src/agentic/tools/serper_search.py",
+    "src/agentic/utils/__init__.py",
+    "src/agentic/utils/main_utils.py",
     ".gitignore",
     "demo.py",
     "LICENSE",
     "README.md",
     "requirements.txt",
+    "scripts.sh",
     "setup.py",
-    "template.py",
+    "template.py"
 ]
+
 
 # File and directory creation logic
 for filepath in list_of_files:
