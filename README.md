@@ -1,4 +1,4 @@
-<img width="958" alt="16" src="https://github.com/user-attachments/assets/e0dcb8cf-332c-4484-99da-08bb510723f5" /><img width="957" alt="17" src="https://github.com/user-attachments/assets/47c5d9ad-a2ca-40cc-9209-43b8a8b844af" /># 🌺 🌸 🌿 Production-Ready TripPlanner Multi-AI Agent Project 🍀 🌱 🪴
+# 🌺 🌸 🌿 Production-Ready TripPlanner Multi-AI Agent Project 🍀 🌱 🪴
 
 ## System Design or Project Pipeline
 ### Main Pipeline
