@@ -16,6 +16,7 @@ Let's Start with LLM OpenAI: (GPT-3.5 Turbo):
 
 Now let's task about the Agents:
 Web Research Agent: 
+
   ![Screenshot 2024-12-22 014625](https://github.com/user-attachments/assets/83e0f923-6e4e-4763-b11d-09980ea09458)
 
 - Here, I define the **Web Research Agent**, which is responsible for conducting web-based research and retrieving relevant information.  
@@ -41,6 +42,15 @@ Travel Agent:
   - **SearchFlights**: A tool for searching and retrieving flight information using the Amadeus API.  
   - **GetWeatherData**: A tool for fetching real-time weather data from weather.com API.  
 
+Reporter Agent:  
+- Here, I define the **Travel Report Agent**, which aggregates data from various agents like the Web Search Agent and Travel Agent to generate comprehensive and summarized travel reports.  
+- The **role** assigned to the agent is "Travel Report Agent," ensuring its focus on collecting and synthesizing travel-related information.  
+- The **goal** is to write detailed, visual-oriented, and comprehensive travel reports based on inputs from other agents, covering destination details, dates, weather reports, flight information, and events at the location.  
+- I specify **attributes** like friendliness, hard work, visual focus, and attention to detail to ensure the agent delivers well-structured, insightful, and informative reports.  
+- I load the OpenAI model using `LoadModel.load_openai_model()` to provide natural language processing and text generation capabilities.  
+- The agent relies on tools and data from other agents, such as:
+  - **Web Search Agent**: Provides destination details and event-related information.  
+  - **Travel Agent**: Supplies weather reports and flight information.  
 
 
 
