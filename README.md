@@ -202,13 +202,13 @@ See the **deployment diagram** to gain a better understanding of the infrastruct
 
 After completing the **main pipeline**, it's now time to deploy it on the cloud. The steps below outline the process for deploying the Dockerized application to AWS using GitHub Actions **Self Hosted Runner**.
 
-Prerequisites  
-Before proceeding, ensure you have:  
+Prerequisites:  
+
 - Access to AWS.  
 - Necessary API keys and secrets stored securely as GitHub secrets.  
 - SSH access to the EC2 instance with an EC2 key pair's PGP key added to GitHub secrets.
 
-Steps to Deploy
+Steps to Deploy:
 
 1. **Checkout the Code**  
    Pull the latest code from the `main` branch to ensure the most up-to-date version of the application is deployed.
