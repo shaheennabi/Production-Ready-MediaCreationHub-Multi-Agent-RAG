@@ -65,6 +65,33 @@ Wiki Image Search Tool:
 - The **goal** of the tool is to fetch relevant images based on specific queries or topics.  
 - It leverages **WikipediaTools** from TaskflowAI to access and retrieve image data from Wikipedia.  
 
+Wiki Article Search Tool: 
+
+![Screenshot 2024-12-22 021756](https://github.com/user-attachments/assets/e36413f9-799f-41e0-b513-09fec0a69f9a)
+
+- Here, I define the **WikiArticles tool**, which is responsible for fetching articles from Wikipedia using **TaskflowAI's WikipediaTools**.  
+- The **goal** of the tool is to retrieve relevant articles based on specific queries or topics.  
+- It utilizes **WikipediaTools** from TaskflowAI to access and fetch article data from Wikipedia.  
+
+Serper Search Tool:
+
+![Screenshot 2024-12-22 021920](https://github.com/user-attachments/assets/2152df64-700d-428f-a86e-597091f7af79)
+
+- Here, I define the **SerperSearch tool**, which is responsible for performing web searches using **TaskflowAI's WebTools**.  
+- The **goal** of the tool is to retrieve search results from the web based on specific queries or topics.  
+- It leverages **WebTools** from TaskflowAI to perform search operations using the SerperSearch API.  
+
+Weather Fetching Tool:
+
+![Screenshot 2024-12-22 022133](https://github.com/user-attachments/assets/f573e7f3-abf5-4ace-9c81-c0d0abb28be4)
+
+- Here, I define the **GetWeatherData tool**, which is responsible for fetching weather data using **TaskflowAI's WebTools** and the **Weather.com API**.  
+- The **goal** of the tool is to retrieve weather-related information based on location or other relevant queries.  
+- It utilizes **WebTools** from TaskflowAI to interact with the Weather.com API and fetch weather data.  
+
+
+
+
 
 ### Deployment Pipeline
 
