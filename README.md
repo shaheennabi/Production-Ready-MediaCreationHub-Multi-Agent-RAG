@@ -1,23 +1,50 @@
 # 🎇 Production-Ready TripPlanner Multi-AI Agent Project 🚀🎆
 
-**README:** Detailed documentation coming soon.
 
-This project is a cutting-edge **travel assistant** powered by **three specialized AI agents**, delivering seamless and comprehensive trip planning:  
+### Project tree structure
 
-- **🌐 Web Research Agent**  
-  Equipped with tools like **image search**, **Wikipedia articles**, and **Google Search**, this agent gathers detailed information about destinations, events, and local highlights.  
+```bash
+├── .github/workflows/
+│   └── deploy.yml
+├── deployment/
+│   └── app.py
+├── docs/
+│   ├── Agentic RAG Pipeline.md
+│   └── Types of Agentic RAG.md
+├── flowcharts/
+│   └── project_pipeline.jpg
+├── log/
+│   └── timestamp(log)
+├── notebooks/
+│   └── TripPlanner_Multi_AI_Agent_Experimental.ipynb  
+├── src/agentic/
+│   ├── agents/
+│   │   ├── reporter_agent.py
+│   │   ├── travel_agent.py
+│   │   └── web_research_agent.py
+│   ├── exception/
+│   │   └── __init__.py
+│   ├── logger/
+│   │   └── __init__.py
+│   ├── tools/
+│   │   ├── get_weather_data.py
+│   │   ├── search_articles.py
+│   │   ├── search_flights.py
+│   │   ├── search_images.py
+│   │   └── serper_search.py
+│   └── utils/
+│       ├── __init__.py
+│       └── main_utils.py
+├── .gitignore
+├── demo.py
+├── LICENSE
+├── README.md
+├── requirements.txt
+├── scripts.sh
+├── setup.py
+└── template.py
+```
 
-- **✈️ Travel Agent**  
-  Integrated with **flight search** and **real-time weather updates**, this agent helps you find the best travel routes and stay informed about conditions at your destination.  
-
-- **🧠 Planning Agent**  
-  This agent consolidates research and travel data, generating a personalized travel report with detailed recommendations and itineraries.
-
-Modular code will be followed with high-end API i.e taskflowai library.
-
-Full pipeline and architecture will be updated soon. Stay tuned! 🚀
-
-###
 
 ## 📜 License
 This project is licensed under the **MIT License**.  
