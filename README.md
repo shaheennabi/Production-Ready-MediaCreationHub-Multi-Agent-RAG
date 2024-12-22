@@ -203,7 +203,7 @@ See the **deployment diagram** to gain a better understanding of the infrastruct
 
 After completing the **main pipeline**, it's now time to deploy it on the cloud. The steps below outline the process for deploying the Dockerized application to AWS using GitHub Actions **Self Hosted Runner**.
 
----
+
 
 ## Prerequisites  
 Before proceeding, ensure you have:  
@@ -211,7 +211,7 @@ Before proceeding, ensure you have:
 - Necessary API keys and secrets stored securely as GitHub secrets.  
 - SSH access to the EC2 instance with an EC2 key pair's PGP key added to GitHub secrets.
 
----
+
 
 ## Steps to Deploy
 
@@ -235,7 +235,6 @@ Before proceeding, ensure you have:
    - Stop and remove any running instance of the application.  
    - Run the updated Docker container with the necessary environment variables and expose it on the desired port.
 
----
 
 Ensure you store all the API keys (e.g., `OPENAI_API_KEY`, `WEATHER_API_KEY`, `SERPER_API_KEY`, `AMADEUS_API_KEY`, `AMADEUS_API_SECRET`) securely in GitHub secrets.
 
