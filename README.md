@@ -6,8 +6,13 @@
 ![TripPlanner](https://github.com/user-attachments/assets/45f1226e-2e3c-4ae7-999f-9ff0db143bc7)
 
 Let's Start with LLM OpenAI: (GPT-3.5 Turbo):
+
 ![Screenshot 2024-12-22 014852](https://github.com/user-attachments/assets/c33b9de0-e125-4ee7-8fff-67dc952dfe0f)
 
+- In this example, I am loading the **GPT-3.5 Turbo** model.  
+- This model is efficient, cost-effective, and performs exceptionally well for most tasks.  
+- Make sure to load the OpenAI API key properly.  
+- It is recommended to store the API key securely using a `.env` file or a similar approach.  
 
 
 * Web Research Agent
