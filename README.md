@@ -344,6 +344,10 @@ If you want to see the detailed YAML configuration file for this workflow, navig
 
 If you need **Docker** and **GitHub Self-Hosted Runner** commands, I have provided them in the `scripts.sh` file. However, note that GitHub **Self-Hosted Runner** commands are different for every account. Go to -> **Repo Settings** -> **Actions** -> **Runners** -> New Self-Hosted Runner.
 
+### Some shots (after deploying to EC2)
+
+![Screenshot 2024-12-21 121030](https://github.com/user-attachments/assets/9e55c346-e864-49b4-b63e-ff677ae3e873)
+![Screenshot 2024-12-21 121136](https://github.com/user-attachments/assets/8d92472d-ea81-49ec-9672-aa2a1de370d8)
 
 ---
 
