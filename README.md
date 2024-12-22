@@ -55,6 +55,17 @@ Reporter Agent:
   - **Web Search Agent**: Provides destination details and event-related information.  
   - **Travel Agent**: Supplies weather reports and flight information.  
 
+Now let's talk about Tools
+
+Wiki Image Search Tool:
+
+![Screenshot 2024-12-22 021339](https://github.com/user-attachments/assets/d3e1323f-fb04-47a2-a588-bb4a2ac7f589)
+
+- Here, I define the **WikiImages tool**, which is responsible for searching images from Wikipedia using **TaskflowAI's WikipediaTools**.  
+- The **goal** of the tool is to fetch relevant images based on specific queries or topics.  
+- It leverages **WikipediaTools** from TaskflowAI to access and retrieve image data from Wikipedia.  
+- **Logging** ensures that the image search process is tracked and monitored for any errors.  
+- If an exception occurs, it is handled gracefully using `CustomException` to ensure robust error management.  
 
 
 ### Deployment Pipeline
