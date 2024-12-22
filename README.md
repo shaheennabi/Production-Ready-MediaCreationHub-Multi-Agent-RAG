@@ -97,8 +97,7 @@ Search Fligts Tool:
 - The **goal** of the tool is to retrieve flight information based on specific queries such as origin, destination, dates, and other relevant parameters.  
 - It leverages **AmadeusTools** from TaskflowAI to interact with the Amadeus API for flight searches.  
 
-### Now, let's explore `app.py`, where tasks are integrated and orchestrated for seamless interaction with the UI.
-
+### Ok, so now let's talk the `app.py` where everything is bought together (see how tasks are defined, to later engage with UI)
 
 
 
