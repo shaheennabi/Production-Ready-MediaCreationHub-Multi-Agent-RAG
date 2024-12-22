@@ -14,10 +14,19 @@ Let's Start with LLM OpenAI: (GPT-3.5 Turbo):
 - Make sure to load the OpenAI API key properly.  
 - It is recommended to store the API key securely using a `.env` file or a similar approach.  
 
-
-* Web Research Agent
+Now let's task about the Agents:
+Web Research Agent
   ![Screenshot 2024-12-22 014625](https://github.com/user-attachments/assets/83e0f923-6e4e-4763-b11d-09980ea09458)
 
+- Here, I define the **Web Research Agent**, which is responsible for conducting web-based research and retrieving relevant information.  
+- I assign the role of "Web Research Agent" to the agent, ensuring it focuses on researching destinations and finding related images.  
+- The **goal** is set to perform thorough and comprehensive research with a visual focus.  
+- I specify **attributes** like diligence, thoroughness, and visual-focus to guide the agent's behavior during tasks.  
+- I load the OpenAI model using `LoadModel.load_openai_model()` to empower the agent with natural language processing capabilities.  
+- I include tools like:
+  - **SerperSearch**: For detailed web searches.  
+  - **WikiArticles**: To fetch related articles for context.  
+  - **WikiImages**: To search and retrieve relevant images.  
 
 
 ### Deployment Pipeline
