@@ -1,4 +1,4 @@
-# 🎇 Production-Ready TripPlanner Multi-AI Agent Project 🚀🎆
+# 🌺 🌸 🌿 Production-Ready TripPlanner Multi-AI Agent Project 🍀 🌱 🪴
 
 ## System Design or Project Pipeline
 ### Main Pipeline
