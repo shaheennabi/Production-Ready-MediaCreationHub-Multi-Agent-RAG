@@ -1,7 +1,6 @@
 import streamlit as st
-from taskflowai import Agent, OpenrouterModels, Task, AmadeusTools, OpenaiModels, WikipediaTools, WebTools, set_verbosity
+from taskflowai import  Task, set_verbosity
 import os
-from dotenv import load_dotenv
 import re
 from src.agentic.agents.reporter_agent import TravelReportAgent
 from src.agentic.agents.travel_agent import TravelAgent
@@ -20,7 +19,6 @@ st.set_page_config(
 set_verbosity(True)
 
 # Load environment variables
-load_dotenv()
 
 # First, simplify the CSS by removing the white backgrounds and fixing contrast
 st.markdown("""
@@ -70,19 +68,6 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-# Validate required API keys
-required_keys = [
-    "WEATHER_API_KEY",
-    "SERPER_API_KEY",
-    "AMADEUS_API_KEY",
-    "AMADEUS_API_SECRET",
-    "OPENAI_API_KEY"
-]
-
-# Check for missing keys
-missing_keys = [key for key in required_keys if not os.getenv(key)]
-if missing_keys:
-    raise ValueError(f"Missing required API keys: {', '.join(missing_keys)}")
 
 # Define agents
 reporter_agent = TravelReportAgent.initialize_travel_report_agent()
