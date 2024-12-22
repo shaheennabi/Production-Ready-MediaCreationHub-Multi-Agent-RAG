@@ -1,4 +1,4 @@
-# 🌺 🌸 🌿 Production-Ready TripPlanner Multi-AI Agent Project 🍀 🌱 🪴
+<img width="958" alt="16" src="https://github.com/user-attachments/assets/e0dcb8cf-332c-4484-99da-08bb510723f5" /><img width="957" alt="17" src="https://github.com/user-attachments/assets/47c5d9ad-a2ca-40cc-9209-43b8a8b844af" /># 🌺 🌸 🌿 Production-Ready TripPlanner Multi-AI Agent Project 🍀 🌱 🪴
 
 ## System Design or Project Pipeline
 ### Main Pipeline
@@ -164,12 +164,33 @@ Write Travel Report Task (streamlit UI):
 
 ### Have a Look (How it Appears via UI While Running the `Main Pipeline`)
 
-
-
-
-
-
-
+<img width="958" alt="1" src="https://github.com/user-attachments/assets/ff149519-e5fd-4271-abf0-d5eb9d8fca82" />
+<img width="956" alt="2" src="https://github.com/user-attachments/assets/5e13255a-16c7-4510-bdf3-d0385c176034" />
+<img width="959" alt="3" src="https://github.com/user-attachments/assets/563c21d2-f15a-4402-9f6c-fea788ad5090" />
+<img width="959" alt="4" src="https://github.com/user-attachments/assets/4e5a60dc-c40c-4740-82b8-5d4ff6dc908f" />
+<img width="958" alt="5" src="https://github.com/user-attachments/assets/01845f17-4dee-4ebb-bc2f-2bb90bbc7f20" />
+<img width="959" alt="6" src="https://github.com/user-attachments/assets/ed802136-072a-4b0b-b705-2d2bd00d7be6" />
+<img width="959" alt="7" src="https://github.com/user-attachments/assets/eb1799c5-bbe2-43ce-a1c3-13db53d6af69" />
+<img width="959" alt="8" src="https://github.com/user-attachments/assets/26e91312-4b7a-49ef-92df-be60069aea20" />
+<img width="959" alt="9" src="https://github.com/user-attachments/assets/72b54321-bc6f-418f-95b3-c980fd05e1fd" />
+<img width="954" alt="10" src="https://github.com/user-attachments/assets/52c7f0e3-57a9-4f60-a04c-d97a0e41c15e" />
+<img width="958" alt="11" src="https://github.com/user-attachments/assets/8e7bda45-96e8-426d-a558-6af7ab082346" />
+<img width="947" alt="12" src="https://github.com/user-attachments/assets/6fc5a251-b140-4e8f-acf4-84dd6e4dbc1e" />
+<img width="959" alt="13" src="https://github.com/user-attachments/assets/60c05b81-a9db-45d4-8635-a9c49e646d91" />
+<img width="959" alt="14" src="https://github.com/user-attachments/assets/ca81265a-19eb-4a51-8fb5-4af9e5441e1a" />
+<img width="957" alt="15" src="https://github.com/user-attachments/assets/e7411c35-41eb-4a22-8998-e23d1e9e95e1" />
+<img width="958" alt="16" src="https://github.com/user-attachments/assets/e6d5bce8-b33e-4681-9bae-ea51d11b4f1d" />
+<img width="957" alt="17" src="https://github.com/user-attachments/assets/92fa0f85-de82-467e-b8fa-fe252b89c80f" />
+<img width="956" alt="18" src="https://github.com/user-attachments/assets/29a63694-5913-40df-8f55-7c99a61f228c" />
+<img width="958" alt="19" src="https://github.com/user-attachments/assets/e7adf831-760e-4486-9b2c-74f9f6d6fee3" />
+<img width="956" alt="21" src="https://github.com/user-attachments/assets/06043e1d-16ce-44c7-ba68-56d14c35f1ec" />
+<img width="959" alt="22" src="https://github.com/user-attachments/assets/fba03c7f-aef3-4f35-96c3-eb64af957ac0" />
+<img width="957" alt="23" src="https://github.com/user-attachments/assets/9d4f1e02-8dad-40c8-b946-3fceac5f1158" />
+<img width="959" alt="24" src="https://github.com/user-attachments/assets/1c121042-2468-490c-b241-5bad92ed006c" />
+<img width="956" alt="25" src="https://github.com/user-attachments/assets/02502c0e-a714-4515-8558-c906d8cdd747" />
+<img width="959" alt="26" src="https://github.com/user-attachments/assets/e7312a43-7e5b-4824-ac48-c4ad164e6c77" />
+<img width="959" alt="27" src="https://github.com/user-attachments/assets/dfe4c8e3-e70a-410c-bf7d-5054d4a1412b" />
+<img width="956" alt="28" src="https://github.com/user-attachments/assets/2a1a099c-b011-45de-9729-61c6b62b6382" />
 
 
 
