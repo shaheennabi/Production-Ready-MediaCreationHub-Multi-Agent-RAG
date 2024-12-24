@@ -12,7 +12,6 @@ list_of_files = [
     "docs/Agentic RAG Pipeline.md",
     "docs/Types of Agentic RAG.md",
     "flowcharts/project_pipeline.png",
-    "log/timestamp(log)",
     "notebooks/TripPlanner_Multi_AI_Agent_Experimental.ipynb",
     "src/agentic/agents/reporter_agent.py",
     "src/agentic/agents/travel_agent.py",
