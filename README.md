@@ -1,5 +1,5 @@
 # 🌺 🌿 🌱 Production-Ready TripPlanner Multi-AI Agent Project 🍃 🌸 🪴
-### Discussions box is open, you can ask anything
+### Discussions box is open, you can ask anything & i will accept any pull request feel free to contribute (you can later use this project in your resume etc..)
 
 ## **Problem Statement**  
 ---  
